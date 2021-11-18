@@ -19,4 +19,4 @@ print(data4)
 
 data5 = pd.read_excel('data5.xlsx')
 print(data5)
-print(data5.loc[3][0])
+# print(data5.loc[3][0])
