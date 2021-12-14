@@ -40,8 +40,8 @@ def gradient_descent_runner(points, starting_b, starting_m, learning_rate, num_i
 def run():
     points = genfromtxt("data.csv", delimiter=",")
     learning_rate = 0.0001
-    initial_b = 0  # initial y-intercept guess
-    initial_m = 0  # initial slope guess
+    initial_b = 20  # initial y-intercept guess
+    initial_m = 0.1  # initial slope guess
     num_iterations = 1000
     print("Starting gradient descent at b = {0}, m = {1}, error = {2}".format(initial_b, initial_m,
                                                                               compute_error_for_line_given_points(
@@ -51,10 +51,10 @@ def run():
     print("After {0} iterations b = {1}, m = {2}, error = {3}".format(num_iterations, b, m,
                                                                       compute_error_for_line_given_points(b, m,
                                                                                                           points)))
-    X = np.linspace(0, 100, 100)
-    Y = [m * x + b for x in X]
+    K = np.linspace(0, 100, 100)
+    C = [m * k + b for k in K]
     plt.scatter(points[0:100, 0], points[0:100,1])
-    plt.plot(X, Y, color = 'r')
+    plt.plot(K, C, color = 'r')
     plt.show()
     repeat = 'Y'
     while repeat == 'Y':
