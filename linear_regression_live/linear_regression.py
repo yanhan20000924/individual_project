@@ -1,4 +1,3 @@
-
 from numpy import *
 import numpy as np
 import matplotlib.pyplot as plt
@@ -37,12 +36,12 @@ def gradient_descent_runner(points, starting_b, starting_m, learning_rate, num_i
     return [b, m]
 
 
-def run():
-    points = genfromtxt("data.csv", delimiter=",")
+def dataset_input(crosssection_name):
+    points = genfromtxt(crosssection_name, delimiter=",")
     learning_rate = 0.0001
-    initial_b = 20  # initial y-intercept guess
+    initial_b = 15  # initial y-intercept guess
     initial_m = 0.1  # initial slope guess
-    num_iterations = 1000
+    num_iterations = 10000
     print("Starting gradient descent at b = {0}, m = {1}, error = {2}".format(initial_b, initial_m,
                                                                               compute_error_for_line_given_points(
                                                                                   initial_b, initial_m, points)))
@@ -53,14 +52,29 @@ def run():
                                                                                                           points)))
     K = np.linspace(0, 100, 100)
     C = [m * k + b for k in K]
-    plt.scatter(points[0:100, 0], points[0:100,1])
-    plt.plot(K, C, color = 'r')
+    plt.scatter(points[0:100, 0], points[0:100, 1])
+    plt.plot(K, C, color='r')
     plt.show()
+    return [b, m]
+
+
+def run():
+    [b, m] = dataset_input("diameter_cs1.csv")
+    [b1, m1] = dataset_input("diameter_cs3_cs5.csv")
+    [b2, m2] = dataset_input("diameter_cs5_cs8.csv")
+    [b3, m3] = dataset_input("diameter_cs8_cs11.csv")
     repeat = 'Y'
     while repeat == 'Y':
         age = int(input(print('enter the age:')))
-        cs3_cs5 = m * age + b
-        print('\nthe corresponding cs3-cs5 mean diameter is ' + '{}'.format(cs3_cs5))
+        cs1 = m * age + b
+        cs3_cs5 = m1 * age + b1
+        cs5_cs8 = m2 * age + b2
+        cs8_cs11 = m3 * age + b3
+
+        print('\ncs8-cs11mean diameter is ' + '{}'.format(cs1))
+        print('\ncs8-cs11mean diameter is ' + '{}'.format(cs3_cs5))
+        print('\ncs3-cs5 mean diameter is ' + '{}'.format(cs5_cs8))
+        print('\ncs8-cs11mean diameter is ' + '{}'.format(cs8_cs11))
         repeat = input(print('start again?(Y/N):'))
     else:
         print('finish')
