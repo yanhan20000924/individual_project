@@ -71,9 +71,9 @@ def run():
         cs5_cs8 = m2 * age + b2
         cs8_cs11 = m3 * age + b3
 
-        print('\ncs8-cs11mean diameter is ' + '{}'.format(cs1))
-        print('\ncs8-cs11mean diameter is ' + '{}'.format(cs3_cs5))
-        print('\ncs3-cs5 mean diameter is ' + '{}'.format(cs5_cs8))
+        print('\ncs1mean diameter is ' + '{}'.format(cs1))
+        print('\ncs3-cs5mean diameter is ' + '{}'.format(cs3_cs5))
+        print('\ncs5-cs8 mean diameter is ' + '{}'.format(cs5_cs8))
         print('\ncs8-cs11mean diameter is ' + '{}'.format(cs8_cs11))
         repeat = input(print('start again?(Y/N):'))
     else:
