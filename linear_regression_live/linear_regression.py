@@ -50,11 +50,11 @@ def dataset_input(crosssection_name):
     print("After {0} iterations b = {1}, m = {2}, error = {3}".format(num_iterations, b, m,
                                                                       compute_error_for_line_given_points(b, m,
                                                                                                           points)))
-    K = np.linspace(0, 100, 100)
-    C = [m * k + b for k in K]
-    plt.scatter(points[0:100, 0], points[0:100, 1])
-    plt.plot(K, C, color='r')
-    plt.show()
+    # K = np.linspace(0, 100, 100)
+    # C = [m * k + b for k in K]
+    # plt.scatter(points[0:100, 0], points[0:100, 1])
+    # plt.plot(K, C, color='r')
+    # plt.show()
     return [b, m]
 
 
@@ -63,6 +63,11 @@ def run():
     [b1, m1] = dataset_input("diameter_cs3_cs5.csv")
     [b2, m2] = dataset_input("diameter_cs5_cs8.csv")
     [b3, m3] = dataset_input("diameter_cs8_cs11.csv")
+    [b4, m4] = dataset_input("curvilinear lengthcs1-3.csv")
+    [b5, m5] = dataset_input("curvilinear lengthcs1-11.csv")
+    [b6, m6] = dataset_input("curvilinear lengthCS3-5.csv")
+    [b7, m7] = dataset_input("curvilinear lengthCS5-8.csv")
+    [b8, m8] = dataset_input("curvilinear lengthCS8-11.csv")
     repeat = 'Y'
     while repeat == 'Y':
         age = int(input(print('enter the age:')))
@@ -70,11 +75,23 @@ def run():
         cs3_cs5 = m1 * age + b1
         cs5_cs8 = m2 * age + b2
         cs8_cs11 = m3 * age + b3
+        Ccs1_cs3 = m4 * age + b4
+        Ccs1_cs11 = m5 * age + b5
+        Ccs3_cs5 = m6 * age + b6
+        Ccs5_cs8 = m7 * age + b7
+        Ccs8_cs11 = m8 * age + b8
 
         print('\ncs1mean diameter is ' + '{}'.format(cs1))
         print('\ncs3-cs5mean diameter is ' + '{}'.format(cs3_cs5))
         print('\ncs5-cs8 mean diameter is ' + '{}'.format(cs5_cs8))
         print('\ncs8-cs11mean diameter is ' + '{}'.format(cs8_cs11))
+
+        print('\ncs1_cs3curvilinear length is ' + '{}'.format(Ccs1_cs3))
+        print('\ncs1-cs11curvilinear length is ' + '{}'.format(Ccs1_cs11))
+        print('\ncs3-cs5curvilinear length is ' + '{}'.format(Ccs3_cs5))
+        print('\ncs5-cs8curvilinear length is ' + '{}'.format(Ccs5_cs8))
+        print('\ncs8-cs11curvilinear length is ' + '{}'.format(Ccs8_cs11))
+
         repeat = input(print('start again?(Y/N):'))
     else:
         print('finish')
