@@ -45,6 +45,20 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="C:\Users\User\Desktop\height.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="C:\Users\User\Desktop\width.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\linear_regression_live\diameter_cs1.csv">
           <value>
             <Attribute>

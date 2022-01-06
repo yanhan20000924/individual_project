@@ -36,7 +36,51 @@ def gradient_descent_runner(points, starting_b, starting_m, learning_rate, num_i
     return [b, m]
 
 
-def dataset_input(crosssection_name):
+def dataset_input_diameter(crosssection_name):
+    points = genfromtxt(crosssection_name, delimiter=",")
+    learning_rate = 0.0001
+    initial_b = 15  # initial y-intercept guess
+    initial_m = 0.1  # initial slope guess
+    num_iterations = 10000
+    print("Starting gradient descent at b = {0}, m = {1}, error = {2}".format(initial_b, initial_m,
+                                                                              compute_error_for_line_given_points(
+                                                                                  initial_b, initial_m, points)))
+    print("Running...")
+    [b, m] = gradient_descent_runner(points, initial_b, initial_m, learning_rate, num_iterations)
+    print("After {0} iterations b = {1}, m = {2}, error = {3}".format(num_iterations, b, m,
+                                                                      compute_error_for_line_given_points(b, m,
+                                                                                                          points)))
+    # K = np.linspace(0, 100, 100)
+    # C = [m * k + b for k in K]
+    # plt.scatter(points[0:100, 0], points[0:100, 1])
+    # plt.plot(K, C, color='r')
+    # plt.show()
+    return [b, m]
+
+
+def dataset_input_curvilinear(crosssection_name):
+    points = genfromtxt(crosssection_name, delimiter=",")
+    learning_rate = 0.0001
+    initial_b = 15  # initial y-intercept guess
+    initial_m = 0.1  # initial slope guess
+    num_iterations = 10000
+    print("Starting gradient descent at b = {0}, m = {1}, error = {2}".format(initial_b, initial_m,
+                                                                              compute_error_for_line_given_points(
+                                                                                  initial_b, initial_m, points)))
+    print("Running...")
+    [b, m] = gradient_descent_runner(points, initial_b, initial_m, learning_rate, num_iterations)
+    print("After {0} iterations b = {1}, m = {2}, error = {3}".format(num_iterations, b, m,
+                                                                      compute_error_for_line_given_points(b, m,
+                                                                                                          points)))
+    # K = np.linspace(0, 100, 100)
+    # C = [m * k + b for k in K]
+    # plt.scatter(points[0:100, 0], points[0:100, 1])
+    # plt.plot(K, C, color='r')
+    # plt.show()
+    return [b, m]
+
+
+def dataset_input_HandW(crosssection_name):
     points = genfromtxt(crosssection_name, delimiter=",")
     learning_rate = 0.0001
     initial_b = 15  # initial y-intercept guess
@@ -59,27 +103,42 @@ def dataset_input(crosssection_name):
 
 
 def run():
-    [b, m] = dataset_input("diameter_cs1.csv")
-    [b1, m1] = dataset_input("diameter_cs3_cs5.csv")
-    [b2, m2] = dataset_input("diameter_cs5_cs8.csv")
-    [b3, m3] = dataset_input("diameter_cs8_cs11.csv")
-    [b4, m4] = dataset_input("curvilinear lengthcs1-3.csv")
-    [b5, m5] = dataset_input("curvilinear lengthcs1-11.csv")
-    [b6, m6] = dataset_input("curvilinear lengthCS3-5.csv")
-    [b7, m7] = dataset_input("curvilinear lengthCS5-8.csv")
-    [b8, m8] = dataset_input("curvilinear lengthCS8-11.csv")
-    repeat = 'Y'
-    while repeat == 'Y':
+    # mean diameter
+    [b, m] = dataset_input_diameter("diameter_cs1.csv")
+    [b1, m1] = dataset_input_diameter("diameter_cs3_cs5.csv")
+    [b2, m2] = dataset_input_diameter("diameter_cs5_cs8.csv")
+    [b3, m3] = dataset_input_diameter("diameter_cs8_cs11.csv")
+
+    # curvilinear length
+    [b4, m4] = dataset_input_curvilinear("curvilinear lengthcs1-3.csv")
+    [b5, m5] = dataset_input_curvilinear("curvilinear lengthcs1-11.csv")
+    [b6, m6] = dataset_input_curvilinear("curvilinear lengthCS3-5.csv")
+    [b7, m7] = dataset_input_curvilinear("curvilinear lengthCS5-8.csv")
+    [b8, m8] = dataset_input_curvilinear("curvilinear lengthCS8-11.csv")
+
+    # height
+    [b9, m9] = dataset_input_HandW("height.csv")
+
+    # width
+    [b10, m10] = dataset_input_HandW("width.csv")
+
+    again = 'Y'
+    while again == 'Y':
+
         age = int(input(print('enter the age:')))
         cs1 = m * age + b
         cs3_cs5 = m1 * age + b1
         cs5_cs8 = m2 * age + b2
         cs8_cs11 = m3 * age + b3
+
         Ccs1_cs3 = m4 * age + b4
         Ccs1_cs11 = m5 * age + b5
         Ccs3_cs5 = m6 * age + b6
         Ccs5_cs8 = m7 * age + b7
         Ccs8_cs11 = m8 * age + b8
+
+        height = m9 * age + b9
+        width = m10 * age + b10
 
         print('\ncs1mean diameter is ' + '{}'.format(cs1))
         print('\ncs3-cs5mean diameter is ' + '{}'.format(cs3_cs5))
@@ -91,7 +150,11 @@ def run():
         print('\ncs3-cs5curvilinear length is ' + '{}'.format(Ccs3_cs5))
         print('\ncs5-cs8curvilinear length is ' + '{}'.format(Ccs5_cs8))
         print('\ncs8-cs11curvilinear length is ' + '{}'.format(Ccs8_cs11))
-        repeat = input(print('start again?(Y/N):'))
+
+        print('\nHeight is ' + '{}'.format(height))
+        print('\nWidth is ' + '{}'.format(width))
+
+        again = input(print('start again?(Y/N):'))
     else:
         print('finish')
 
