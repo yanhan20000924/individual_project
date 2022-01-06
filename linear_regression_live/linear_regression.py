@@ -91,7 +91,6 @@ def run():
         print('\ncs3-cs5curvilinear length is ' + '{}'.format(Ccs3_cs5))
         print('\ncs5-cs8curvilinear length is ' + '{}'.format(Ccs5_cs8))
         print('\ncs8-cs11curvilinear length is ' + '{}'.format(Ccs8_cs11))
-
         repeat = input(print('start again?(Y/N):'))
     else:
         print('finish')
