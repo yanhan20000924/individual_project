@@ -72,19 +72,19 @@ def dataset_input_curvilinear(crosssection_name):
     print("After {0} iterations b = {1}, m = {2}, error = {3}".format(num_iterations, b, m,
                                                                       compute_error_for_line_given_points(b, m,
                                                                                                           points)))
-    # K = np.linspace(0, 100, 100)
-    # C = [m * k + b for k in K]
-    # plt.scatter(points[0:100, 0], points[0:100, 1])
-    # plt.plot(K, C, color='r')
-    # plt.show()
+    K = np.linspace(0, 100, 100)
+    C = [m * k + b for k in K]
+    plt.scatter(points[0:100, 0], points[0:100, 1])
+    plt.plot(K, C, color='r')
+    plt.show()
     return [b, m]
 
 
 def dataset_input_HandW(crosssection_name):
     points = genfromtxt(crosssection_name, delimiter=",")
     learning_rate = 0.0001
-    initial_b = 15  # initial y-intercept guess
-    initial_m = 0.1  # initial slope guess
+    initial_b = 20  # initial y-intercept guess
+    initial_m = 0.05  # initial slope guess
     num_iterations = 10000
     print("Starting gradient descent at b = {0}, m = {1}, error = {2}".format(initial_b, initial_m,
                                                                               compute_error_for_line_given_points(
@@ -102,6 +102,29 @@ def dataset_input_HandW(crosssection_name):
     return [b, m]
 
 
+def dataset_input_curvilinear1_11(crosssection_name):
+    points = genfromtxt(crosssection_name, delimiter=",")
+    learning_rate = 0.0001
+    initial_b = 200  # initial y-intercept guess
+    initial_m = 0.1  # initial slope guess
+    num_iterations = 10000
+    print("Starting gradient descent at b = {0}, m = {1}, error = {2}".format(initial_b, initial_m,
+                                                                              compute_error_for_line_given_points(
+                                                                                  initial_b, initial_m, points)))
+    print("Running...")
+    [b, m] = gradient_descent_runner(points, initial_b, initial_m, learning_rate, num_iterations)
+    print("After {0} iterations b = {1}, m = {2}, error = {3}".format(num_iterations, b, m,
+                                                                      compute_error_for_line_given_points(b, m,
+                                                                                                          points)))
+    K = np.linspace(0, 100, 100)
+    C = [m * k + b for k in K]
+    plt.scatter(points[0:100, 0], points[0:100, 1])
+    plt.plot(K, C, color='r')
+    plt.show()
+    return [b, m]
+
+
+
 def run():
     # mean diameter
     [b, m] = dataset_input_diameter("diameter_cs1.csv")
@@ -111,7 +134,7 @@ def run():
 
     # curvilinear length
     [b4, m4] = dataset_input_curvilinear("curvilinear lengthcs1-3.csv")
-    [b5, m5] = dataset_input_curvilinear("curvilinear lengthcs1-11.csv")
+    [b5, m5] = dataset_input_curvilinear1_11("curvilinear lengthcs1-11.csv")
     [b6, m6] = dataset_input_curvilinear("curvilinear lengthCS3-5.csv")
     [b7, m7] = dataset_input_curvilinear("curvilinear lengthCS5-8.csv")
     [b8, m8] = dataset_input_curvilinear("curvilinear lengthCS8-11.csv")
