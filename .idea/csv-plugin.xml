@@ -3,6 +3,20 @@
   <component name="CsvFileAttributes">
     <option name="attributeMap">
       <map>
+        <entry key="\Multiple-Linear-Regression\50_Startups.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\linear_regression_live\curvilinear lengthCS5-8.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\linear_regression_live\diameter_cs1.csv">
           <value>
             <Attribute>
@@ -25,6 +39,20 @@
           </value>
         </entry>
         <entry key="\linear_regression_live\diameter_cs8_cs11.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\linear_regression_live\height.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\linear_regression_live\width.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />

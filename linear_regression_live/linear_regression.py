@@ -165,6 +165,29 @@ def run():
         height = m9 * age + b9
         width = m10 * age + b10
 
+        print(m)
+        print(b)
+        print(m0)
+        print(b0)
+        print(m1)
+        print(b1)
+        print(m2)
+        print(b2)
+        print(m3)
+        print(b3)
+        print(m5)
+        print(b5)
+        print(m6)
+        print(b6)
+        print(m7)
+        print(b7)
+        print(m8)
+        print(b8)
+        print(m9)
+        print(b9)
+        print(m10)
+        print(b10)
+
         # Results.extend([cs1, cs2, cs3_cs5, cs5_cs8, cs8_cs11, Ccs3_cs5, Ccs5_cs8, Ccs8_cs11, Ccs1_cs11, height, width])
         # print(Results)
         # Results = []
