@@ -36,6 +36,10 @@ regressor.fit(X_train, y_train)
 y_pred = regressor.predict(X_test)
 print(X_test)
 print(y_pred)
+x_test = X.iloc[118:, :]
+print(x_test)
+Y_predict = regressor.predict(x_test)
+print(Y_predict)
 from sklearn.metrics import r2_score
 
 score = r2_score(y_test, y_pred)

@@ -133,7 +133,7 @@ def run():
     [b3, m3] = dataset_input_diameter("diameter_cs8_cs11.csv")
 
     # curvilinear length
-    # [b4, m4] = dataset_input_curvilinear("curvilinear lengthcs1-3.csv")
+    [b4, m4] = dataset_input_curvilinear("curvilinear length cs1-5.csv")
     [b5, m5] = dataset_input_curvilinear1_11("curvilinear lengthcs1-11.csv")
     [b6, m6] = dataset_input_curvilinear("curvilinear lengthCS3-5.csv")
     [b7, m7] = dataset_input_curvilinear("curvilinear lengthCS5-8.csv")
@@ -146,7 +146,7 @@ def run():
     [b10, m10] = dataset_input_HandW("width.csv")
 
     again = 'Y'
-    # esults = []
+    # results = []
     while again == 'Y':
 
         age = int(input(print('enter the age:')))
@@ -156,7 +156,7 @@ def run():
         cs5_cs8 = m2 * age + b2
         cs8_cs11 = m3 * age + b3
 
-        # Ccs1_cs3 = m4 * age + b4
+        Ccs1_cs5 = m4 * age + b4
         Ccs1_cs11 = m5 * age + b5
         Ccs3_cs5 = m6 * age + b6
         Ccs5_cs8 = m7 * age + b7
@@ -175,6 +175,9 @@ def run():
         print(b2)
         print(m3)
         print(b3)
+        print('m4')
+        print(m4)
+        print(b4)
         print(m5)
         print(b5)
         print(m6)
@@ -197,7 +200,7 @@ def run():
         print('\ncs5-cs8 mean diameter is ' + '{}'.format(cs5_cs8))
         print('\ncs8-cs11mean diameter is ' + '{}'.format(cs8_cs11))
 
-        # print('\ncs1_cs3curvilinear length is ' + '{}'.format(Ccs1_cs3))
+        print('\ncs1_cs3curvilinear length is ' + '{}'.format(Ccs1_cs5))
         print('\ncs1-cs11curvilinear length is ' + '{}'.format(Ccs1_cs11))
         print('\ncs3-cs5curvilinear length is ' + '{}'.format(Ccs3_cs5))
         print('\ncs5-cs8curvilinear length is ' + '{}'.format(Ccs5_cs8))
