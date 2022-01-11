@@ -3,14 +3,14 @@
   <component name="CsvFileAttributes">
     <option name="attributeMap">
       <map>
-        <entry key="C:\Users\User\Desktop\all_data.csv">
+        <entry key="\Multiple-Linear-Regression\50_Startups.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
             </Attribute>
           </value>
         </entry>
-        <entry key="\Multiple-Linear-Regression\50_Startups.csv">
+        <entry key="\Multiple-Linear-Regression\all_data.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />

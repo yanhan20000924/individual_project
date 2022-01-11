@@ -6,20 +6,20 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 # Importing the dataset
-dataset = pd.read_csv('50_Startups.csv')
-X = dataset.iloc[:, :-1]
-y = dataset.iloc[:, 4]
+dataset = pd.read_csv('all_data.csv')
+X = dataset.iloc[:, 1:]
+y = dataset.iloc[:, 0]
 print(X)
 print(y)
 # Convert the column into categorical columns
 
-states = pd.get_dummies(X['State'], drop_first=True)
+# states = pd.get_dummies(X['State'], drop_first=True)
 
 # Drop the state coulmn
-X = X.drop('State', axis=1)
+# X = X.drop('State', axis=1)
 
 # concat the dummy variables
-X = pd.concat([X, states], axis=1)
+# X = pd.concat([X, states], axis=1)
 
 # Splitting the dataset into the Training set and Test set
 from sklearn.model_selection import train_test_split
@@ -36,10 +36,6 @@ regressor.fit(X_train, y_train)
 y_pred = regressor.predict(X_test)
 print(X_test)
 print(y_pred)
-x_test = X.iloc[48:, :]
-print(x_test)
-Y_predict = regressor.predict(x_test)
-print(Y_predict)
 from sklearn.metrics import r2_score
 
 score = r2_score(y_test, y_pred)
