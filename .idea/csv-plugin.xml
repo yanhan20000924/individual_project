@@ -10,7 +10,14 @@
             </Attribute>
           </value>
         </entry>
-        <entry key="C:\Users\User\Desktop\curvilinear length cs1-5.csv">
+        <entry key="C:\Users\User\Desktop\curvature(cs1-cs5).csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="C:\Users\User\Desktop\radius of curvature(cs4-cs9).csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
@@ -25,6 +32,13 @@
           </value>
         </entry>
         <entry key="\Multiple-Linear-Regression\all_data.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\linear_regression_live\curvilinear length cs1-5.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />

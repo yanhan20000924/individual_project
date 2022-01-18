@@ -43,13 +43,13 @@ def dataset_input_diameter(crosssection_name):
     initial_m = 0.1  # initial slope guess
     num_iterations = 10000
     print("Starting gradient descent at b = {0}, m = {1}, error = {2}".format(initial_b, initial_m,
-                                                                                 compute_error_for_line_given_points(
-                                                                                     initial_b, initial_m, points)))
+                                                                              compute_error_for_line_given_points(
+                                                                                  initial_b, initial_m, points)))
     print("Running...")
     [b, m] = gradient_descent_runner(points, initial_b, initial_m, learning_rate, num_iterations)
     print("After {0} iterations b = {1}, m = {2}, error = {3}".format(num_iterations, b, m,
-                                                                        compute_error_for_line_given_points(b, m,
-                                                                                                            points)))
+                                                                      compute_error_for_line_given_points(b, m,
+                                                                                                          points)))
     K = np.linspace(0, 100, 100)
     C = [m * k + b for k in K]
     plt.scatter(points[0:100, 0], points[0:100, 1])
@@ -64,19 +64,19 @@ def dataset_input_curvilinear(crosssection_name):
     initial_b = 15  # initial y-intercept guess
     initial_m = 0.1  # initial slope guess
     num_iterations = 10000
-    # print("Starting gradient descent at b = {0}, m = {1}, error = {2}".format(initial_b, initial_m,
-    #                                                                              compute_error_for_line_given_points(
-    #                                                                                  initial_b, initial_m, points)))
-    # print("Running...")
+    print("Starting gradient descent at b = {0}, m = {1}, error = {2}".format(initial_b, initial_m,
+                                                                              compute_error_for_line_given_points(
+                                                                                  initial_b, initial_m, points)))
+    print("Running...")
     [b, m] = gradient_descent_runner(points, initial_b, initial_m, learning_rate, num_iterations)
-    # print("After {0} iterations b = {1}, m = {2}, error = {3}".format(num_iterations, b, m,
-    #                                                                      compute_error_for_line_given_points(b, m,
-    #                                                                                                          points)))
-    # K = np.linspace(0, 100, 100)
-    # C = [m * k + b for k in K]
-    # plt.scatter(points[0:100, 0], points[0:100, 1])
-    # plt.plot(K, C, color='r')
-    # plt.show()
+    print("After {0} iterations b = {1}, m = {2}, error = {3}".format(num_iterations, b, m,
+                                                                      compute_error_for_line_given_points(b, m,
+                                                                                                          points)))
+    K = np.linspace(0, 100, 100)
+    C = [m * k + b for k in K]
+    plt.scatter(points[0:100, 0], points[0:100, 1])
+    plt.plot(K, C, color='r')
+    plt.show()
     return [b, m]
 
 
@@ -91,14 +91,14 @@ def dataset_input_HandW(crosssection_name):
     #                                                                                  initial_b, initial_m, points)))
     # print("Running...")
     [b, m] = gradient_descent_runner(points, initial_b, initial_m, learning_rate, num_iterations)
-    # print("After {0} iterations b = {1}, m = {2}, error = {3}".format(num_iterations, b, m,
-    #                                                                      compute_error_for_line_given_points(b, m,
-    #                                                                                                          points)))
-    # K = np.linspace(0, 100, 100)
-    # C = [m * k + b for k in K]
-    # plt.scatter(points[0:100, 0], points[0:100, 1])
-    # plt.plot(K, C, color='r')
-    # plt.show()
+    print("After {0} iterations b = {1}, m = {2}, error = {3}".format(num_iterations, b, m,
+                                                                      compute_error_for_line_given_points(b, m,
+                                                                                                          points)))
+    K = np.linspace(0, 100, 100)
+    C = [m * k + b for k in K]
+    plt.scatter(points[0:100, 0], points[0:100, 1])
+    plt.plot(K, C, color='r')
+    plt.show()
     return [b, m]
 
 
@@ -108,19 +108,41 @@ def dataset_input_curvilinear1_11(crosssection_name):
     initial_b = 200  # initial y-intercept guess
     initial_m = 0.1  # initial slope guess
     num_iterations = 10000
-    # print("Starting gradient descent at b = {0}, m = {1}, error = {2}".format(initial_b, initial_m,
-    #                                                                             compute_error_for_line_given_points(
-    #                                                                                 initial_b, initial_m, points)))
-    # print("Running...")
+    print("Starting gradient descent at b = {0}, m = {1}, error = {2}".format(initial_b, initial_m,
+                                                                              compute_error_for_line_given_points(
+                                                                                  initial_b, initial_m, points)))
+    print("Running...")
     [b, m] = gradient_descent_runner(points, initial_b, initial_m, learning_rate, num_iterations)
-    # print("After {0} iterations b = {1}, m = {2}, error = {3}".format(num_iterations, b, m,
-    #                                                                     compute_error_for_line_given_points(b, m,
-    #                                                                                                         points)))
-    # K = np.linspace(0, 100, 100)
-    # C = [m * k + b for k in K]
-    # plt.scatter(points[0:100, 0], points[0:100, 1])
-    # plt.plot(K, C, color='r')
-    # plt.show()
+    print("After {0} iterations b = {1}, m = {2}, error = {3}".format(num_iterations, b, m,
+                                                                      compute_error_for_line_given_points(b, m,
+                                                                                                          points)))
+    K = np.linspace(0, 100, 100)
+    C = [m * k + b for k in K]
+    plt.scatter(points[0:100, 0], points[0:100, 1])
+    plt.plot(K, C, color='r')
+    plt.show()
+    return [b, m]
+
+
+def dataset_input_curvature(crosssection_name):
+    points = genfromtxt(crosssection_name, delimiter=",")
+    learning_rate = 0.0001
+    initial_b = 0.035  # initial y-intercept guess
+    initial_m = -0.1  # initial slope guess
+    num_iterations = 10000
+    print("Starting gradient descent at b = {0}, m = {1}, error = {2}".format(initial_b, initial_m,
+                                                                              compute_error_for_line_given_points(
+                                                                                  initial_b, initial_m, points)))
+    print("Running...")
+    [b, m] = gradient_descent_runner(points, initial_b, initial_m, learning_rate, num_iterations)
+    print("After {0} iterations b = {1}, m = {2}, error = {3}".format(num_iterations, b, m,
+                                                                      compute_error_for_line_given_points(b, m,
+                                                                                                          points)))
+    K = np.linspace(0, 100, 100)
+    C = [m * k + b for k in K]
+    plt.scatter(points[0:100, 0], points[0:100, 1])
+    plt.plot(K, C, color='r')
+    plt.show()
     return [b, m]
 
 
@@ -145,6 +167,10 @@ def run():
     # width
     [b10, m10] = dataset_input_HandW("width.csv")
 
+    # radius of curvature
+    [b11, m11] = dataset_input_curvature("radius of curvature(cs4-cs9).csv")
+    [b12, m12] = dataset_input_diameter("curvature(cs1-cs5).csv")
+
     again = 'Y'
     # results = []
     while again == 'Y':
@@ -165,31 +191,11 @@ def run():
         height = m9 * age + b9
         width = m10 * age + b10
 
-        print(m)
-        print(b)
-        print(m0)
-        print(b0)
-        print(m1)
-        print(b1)
-        print(m2)
-        print(b2)
-        print(m3)
-        print(b3)
-        print('m4')
-        print(m4)
-        print(b4)
-        print(m5)
-        print(b5)
-        print(m6)
-        print(b6)
-        print(m7)
-        print(b7)
-        print(m8)
-        print(b8)
-        print(m9)
-        print(b9)
-        print(m10)
-        print(b10)
+        RCcs4_cs9 = m11 * age + b11
+        Anglecs1_cs5 = m12 * age + b12
+
+        print(m11)
+        print(b11)
 
         # Results.extend([cs1, cs2, cs3_cs5, cs5_cs8, cs8_cs11, Ccs3_cs5, Ccs5_cs8, Ccs8_cs11, Ccs1_cs11, height, width])
         # print(Results)
@@ -208,6 +214,8 @@ def run():
 
         print('\nHeight is ' + '{}'.format(height))
         print('\nWidth is ' + '{}'.format(width))
+        print('\ncs4-cs9 radius of curvature is ' + '{}'.format(RCcs4_cs9))
+        print('\ncs1-cs5 ascending aortic angle is ' + '{}'.format(Anglecs1_cs5))
 
         again = input(print('start again?(Y/N):'))
     else:
