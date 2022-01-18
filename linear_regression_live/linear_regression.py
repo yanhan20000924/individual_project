@@ -80,6 +80,25 @@ def dataset_input_curvilinear(crosssection_name):
     return [b, m]
 
 
+def dataset_input_curvilinear_cs8_cs11(crosssection_name):
+    points = genfromtxt(crosssection_name, delimiter=",")
+    learning_rate = 0.0001
+    initial_b = 130  # initial y-intercept guess
+    initial_m = 0.2  # initial slope guess
+    num_iterations = 10000
+    print("Running...CS8-CS11")
+    [b, m] = gradient_descent_runner(points, initial_b, initial_m, learning_rate, num_iterations)
+    print("After {0} iterations b = {1}, m = {2}, error = {3}".format(num_iterations, b, m,
+                                                                      compute_error_for_line_given_points(b, m,
+                                                                                                          points)))
+    K = np.linspace(0, 100, 100)
+    C = [m * k + b for k in K]
+    plt.scatter(points[0:100, 0], points[0:100, 1])
+    plt.plot(K, C, color='r')
+    plt.show()
+    return [b, m]
+
+
 def dataset_input_HandW(crosssection_name):
     points = genfromtxt(crosssection_name, delimiter=",")
     learning_rate = 0.0001
@@ -159,7 +178,7 @@ def run():
     [b5, m5] = dataset_input_curvilinear1_11("curvilinear lengthcs1-11.csv")
     [b6, m6] = dataset_input_curvilinear("curvilinear lengthCS3-5.csv")
     [b7, m7] = dataset_input_curvilinear("curvilinear lengthCS5-8.csv")
-    [b8, m8] = dataset_input_curvilinear("curvilinear lengthCS8-11.csv")
+    [b8, m8] = dataset_input_curvilinear_cs8_cs11("curvilinear lengthCS8-11.csv")
 
     # height
     [b9, m9] = dataset_input_HandW("height.csv")
@@ -194,12 +213,6 @@ def run():
         RCcs4_cs9 = m11 * age + b11
         Anglecs1_cs5 = m12 * age + b12
 
-        print(m11)
-        print(b11)
-
-        # Results.extend([cs1, cs2, cs3_cs5, cs5_cs8, cs8_cs11, Ccs3_cs5, Ccs5_cs8, Ccs8_cs11, Ccs1_cs11, height, width])
-        # print(Results)
-        # Results = []
         print('\ncs1mean diameter is ' + '{}'.format(cs1))
         print('\ncs2mean diameter is ' + '{}'.format(cs2))
         print('\ncs3-cs5mean diameter is ' + '{}'.format(cs3_cs5))
