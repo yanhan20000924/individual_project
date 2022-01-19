@@ -36,7 +36,7 @@ def gradient_descent_runner(points, starting_b, starting_m, learning_rate, num_i
     return [b, m]
 
 
-def dataset_input_diameter(crosssection_name):
+def dataset_input_diameter(crosssection_name,title,x_label,y_label):
     points = genfromtxt(crosssection_name, delimiter=",")
     learning_rate = 0.0001
     initial_b = 15  # initial y-intercept guess
@@ -54,11 +54,14 @@ def dataset_input_diameter(crosssection_name):
     C = [m * k + b for k in K]
     plt.scatter(points[0:100, 0], points[0:100, 1])
     plt.plot(K, C, color='r')
+    plt.title(title)
+    plt.xlabel(x_label)
+    plt.ylabel(y_label)
     plt.show()
     return [b, m]
 
 
-def dataset_input_curvilinear(crosssection_name):
+def dataset_input_curvilinear(crosssection_name,title,x_label,y_label):
     points = genfromtxt(crosssection_name, delimiter=",")
     learning_rate = 0.0001
     initial_b = 15  # initial y-intercept guess
@@ -76,11 +79,14 @@ def dataset_input_curvilinear(crosssection_name):
     C = [m * k + b for k in K]
     plt.scatter(points[0:100, 0], points[0:100, 1])
     plt.plot(K, C, color='r')
+    plt.title(title)
+    plt.xlabel(x_label)
+    plt.ylabel(y_label)
     plt.show()
     return [b, m]
 
 
-def dataset_input_curvilinear_cs8_cs11(crosssection_name):
+def dataset_input_curvilinear_cs8_cs11(crosssection_name,title,x_label,y_label):
     points = genfromtxt(crosssection_name, delimiter=",")
     learning_rate = 0.0001
     initial_b = 130  # initial y-intercept guess
@@ -95,11 +101,14 @@ def dataset_input_curvilinear_cs8_cs11(crosssection_name):
     C = [m * k + b for k in K]
     plt.scatter(points[0:100, 0], points[0:100, 1])
     plt.plot(K, C, color='r')
+    plt.title(title)
+    plt.xlabel(x_label)
+    plt.ylabel(y_label)
     plt.show()
     return [b, m]
 
 
-def dataset_input_HandW(crosssection_name):
+def dataset_input_HandW(crosssection_name,title,x_label,y_label):
     points = genfromtxt(crosssection_name, delimiter=",")
     learning_rate = 0.0001
     initial_b = 20  # initial y-intercept guess
@@ -117,11 +126,14 @@ def dataset_input_HandW(crosssection_name):
     C = [m * k + b for k in K]
     plt.scatter(points[0:100, 0], points[0:100, 1])
     plt.plot(K, C, color='r')
+    plt.title(title)
+    plt.xlabel(x_label)
+    plt.ylabel(y_label)
     plt.show()
     return [b, m]
 
 
-def dataset_input_curvilinear1_11(crosssection_name):
+def dataset_input_curvilinear1_11(crosssection_name,title,x_label,y_label):
     points = genfromtxt(crosssection_name, delimiter=",")
     learning_rate = 0.0001
     initial_b = 200  # initial y-intercept guess
@@ -139,11 +151,14 @@ def dataset_input_curvilinear1_11(crosssection_name):
     C = [m * k + b for k in K]
     plt.scatter(points[0:100, 0], points[0:100, 1])
     plt.plot(K, C, color='r')
+    plt.title(title)
+    plt.xlabel(x_label)
+    plt.ylabel(y_label)
     plt.show()
     return [b, m]
 
 
-def dataset_input_curvature(crosssection_name):
+def dataset_input_curvature(crosssection_name,title,x_label,y_label):
     points = genfromtxt(crosssection_name, delimiter=",")
     learning_rate = 0.0001
     initial_b = 0.035  # initial y-intercept guess
@@ -161,34 +176,44 @@ def dataset_input_curvature(crosssection_name):
     C = [m * k + b for k in K]
     plt.scatter(points[0:100, 0], points[0:100, 1])
     plt.plot(K, C, color='r')
+    plt.title(title)
+    plt.xlabel(x_label)
+    plt.ylabel(y_label)
     plt.show()
     return [b, m]
 
 
 def run():
     # mean diameter
-    [b, m] = dataset_input_diameter("diameter_cs1.csv")
-    [b0, m0] = dataset_input_diameter("diameter_cs2.csv")
-    [b1, m1] = dataset_input_diameter("diameter_cs3_cs5.csv")
-    [b2, m2] = dataset_input_diameter("diameter_cs5_cs8.csv")
-    [b3, m3] = dataset_input_diameter("diameter_cs8_cs11.csv")
+    [b, m] = dataset_input_diameter("diameter_cs1.csv",'CS1 mean diameter','Age(year)','diameter(mm)')
+    [b0, m0] = dataset_input_diameter("diameter_cs2.csv",'CS2 mean diameter','Age(year)','diameter(mm)')
+    [b1, m1] = dataset_input_diameter("diameter_cs3_cs5.csv",'CS3-CS55 mean diameter','Age(year)','diameter(mm)')
+    [b2, m2] = dataset_input_diameter("diameter_cs5_cs8.csv",'CS5-CS8 mean diameter','Age(year)','diameter(mm)')
+    [b3, m3] = dataset_input_diameter("diameter_cs8_cs11.csv",'CS8-CS11 mean diameter','Age(year)','diameter(mm)')
 
     # curvilinear length
-    [b4, m4] = dataset_input_curvilinear("curvilinear length cs1-5.csv")
-    [b5, m5] = dataset_input_curvilinear1_11("curvilinear lengthcs1-11.csv")
-    [b6, m6] = dataset_input_curvilinear("curvilinear lengthCS3-5.csv")
-    [b7, m7] = dataset_input_curvilinear("curvilinear lengthCS5-8.csv")
-    [b8, m8] = dataset_input_curvilinear_cs8_cs11("curvilinear lengthCS8-11.csv")
+    [b4, m4] = dataset_input_curvilinear("curvilinear length cs1-5.csv",'CS1-CS5 curvilinear length','Age(year)'
+                                         ,'curvilinear length(mm)')
+    [b5, m5] = dataset_input_curvilinear1_11("curvilinear lengthcs1-11.csv",'CS1-CS11 curvilinear length','Age(year)'
+                                             ,'curvilinear length(mm)')
+    [b6, m6] = dataset_input_curvilinear("curvilinear lengthCS3-5.csv",'CS3-CS5 curvilinear length','Age(year)'
+                                         ,'curvilinear length(mm)')
+    [b7, m7] = dataset_input_curvilinear("curvilinear lengthCS5-8.csv",'CS5-CS8 curvilinear length','Age(year)'
+                                         ,'curvilinear length(mm)')
+    [b8, m8] = dataset_input_curvilinear_cs8_cs11("curvilinear lengthCS8-11.csv",'CS8-CS11 curvilinear length'
+                                                  ,'Age(year)','curvilinear length(mm)')
 
     # height
-    [b9, m9] = dataset_input_HandW("height.csv")
+    [b9, m9] = dataset_input_HandW("height.csv",'Aortic Height','Age(year)','Height(mm)')
 
     # width
-    [b10, m10] = dataset_input_HandW("width.csv")
+    [b10, m10] = dataset_input_HandW("width.csv",'Aortic width','Age(year)','Width(mm)')
 
     # radius of curvature
-    [b11, m11] = dataset_input_curvature("radius of curvature(cs4-cs9).csv")
-    [b12, m12] = dataset_input_diameter("curvature(cs1-cs5).csv")
+    [b11, m11] = dataset_input_curvature("radius of curvature(cs4-cs9).csv",'CS4-CS9 radius of curvature','Age(year)'
+                                         ,'radius of curvature(mm-1)')
+    [b12, m12] = dataset_input_diameter("curvature(cs1-cs5).csv",'CS1-CS5 Angle of curvature','Age(year)'
+                                        ,'Angle of curvature(degree)')
 
     again = 'Y'
     # results = []
