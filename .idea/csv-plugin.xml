@@ -17,6 +17,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\Polynomial-Linear-Regression\diameter_cs3_cs5.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\linear_regression_live\curvilinear length cs1-5.csv">
           <value>
             <Attribute>
@@ -24,7 +31,28 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\linear_regression_live\curvilinear lengthCS3-5.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\linear_regression_live\curvilinear lengthCS5-8.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\linear_regression_live\curvilinear lengthCS8-11.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\linear_regression_live\curvilinear lengthcs1-11.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
