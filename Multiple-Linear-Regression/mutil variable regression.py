@@ -7,8 +7,8 @@ import pandas as pd
 
 # Importing the dataset
 dataset = pd.read_csv('all_data.csv')
-X = dataset.iloc[:, 1:]
-y = dataset.iloc[:, 0]
+X = dataset.iloc[:, [0, 1, 4, 12, 13]]
+y = dataset.iloc[:, 15]
 print(X)
 print(y)
 # Convert the column into categorical columns
@@ -36,7 +36,7 @@ regressor.fit(X_train, y_train)
 y_pred = regressor.predict(X_test)
 print(X_test)
 print(y_pred)
-x_test = X.iloc[134:, :]
+x_test = X.iloc[30:31, :]
 print(x_test)
 Y_predict = regressor.predict(x_test)
 print(Y_predict)
