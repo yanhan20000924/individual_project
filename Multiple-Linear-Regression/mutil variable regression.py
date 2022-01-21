@@ -11,15 +11,6 @@ X = dataset.iloc[:, [0, 1, 4, 12, 13]]
 y = dataset.iloc[:, 15]
 print(X)
 print(y)
-# Convert the column into categorical columns
-
-# states = pd.get_dummies(X['State'], drop_first=True)
-
-# Drop the state coulmn
-# X = X.drop('State', axis=1)
-
-# concat the dummy variables
-# X = pd.concat([X, states], axis=1)
 
 # Splitting the dataset into the Training set and Test set
 from sklearn.model_selection import train_test_split
@@ -36,6 +27,7 @@ regressor.fit(X_train, y_train)
 y_pred = regressor.predict(X_test)
 print(X_test)
 print(y_pred)
+# use NO.32 as the test set
 x_test = X.iloc[30:31, :]
 print(x_test)
 Y_predict = regressor.predict(x_test)
