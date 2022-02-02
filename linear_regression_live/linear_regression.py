@@ -187,7 +187,7 @@ def run():
     # mean diameter
     [b, m] = dataset_input_diameter("diameter_cs1.csv",'CS1 mean diameter','Age(year)','diameter(mm)')
     [b0, m0] = dataset_input_diameter("diameter_cs2.csv",'CS2 mean diameter','Age(year)','diameter(mm)')
-    [b1, m1] = dataset_input_diameter("diameter_cs3_cs5.csv",'CS3-CS55 mean diameter','Age(year)','diameter(mm)')
+    [b1, m1] = dataset_input_diameter("diameter_cs3_cs5.csv",'CS3-CS5 mean diameter','Age(year)','diameter(mm)')
     [b2, m2] = dataset_input_diameter("diameter_cs5_cs8.csv",'CS5-CS8 mean diameter','Age(year)','diameter(mm)')
     [b3, m3] = dataset_input_diameter("diameter_cs8_cs11.csv",'CS8-CS11 mean diameter','Age(year)','diameter(mm)')
 
