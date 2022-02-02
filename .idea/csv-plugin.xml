@@ -17,7 +17,28 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\Polynomial-Linear-Regression\curvature(cs1-cs5).csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\Polynomial-Linear-Regression\curvilinear length cs1-5.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\Polynomial-Linear-Regression\diameter_cs3_cs5.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\Polynomial-Linear-Regression\radius of curvature(cs4-cs9).csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
